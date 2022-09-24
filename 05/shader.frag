@@ -19,7 +19,7 @@ void main() {
     if(channel == 0) { //left step
         pos = floor(pos) + step(0.5, fract(pos));
     } else {    //right: smoothstep
-        float thr = 0.25 * sin(u_time); //範囲の始点と終点を動かすパラメータ
+        float thr = 0.25 * sin(u_time); //範囲の始点と終点を動かすパラメータ -0.25から0.25の間で動かす
         pos = floor(pos) + smoothstep(0.25 + thr, 0.75 - thr, fract(pos));
     }
     pos /= n;//フラグメント座標範囲を[0,1]区間内に正規化
